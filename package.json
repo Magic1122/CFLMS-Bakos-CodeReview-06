@@ -1,0 +1,20 @@
+{
+  "name": "codereview-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chance": "^1.1.0",
+    "@types/moment": "^2.13.0",
+    "lite-server": "^2.5.4",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.38"
+  }
+}
