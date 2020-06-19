@@ -27,9 +27,9 @@ class LocationClass {
 
     display(): string {
         const time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a')
-        return `<div class="col-sm-6 col-md-4 col-lg-3">
+        return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
@@ -60,9 +60,9 @@ class Restaurant extends LocationClass {
     display(): string {
         const time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a')
 
-        return `<div class="col-sm-6 col-md-4 col-lg-3">
+        return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
@@ -99,9 +99,9 @@ class Events extends LocationClass {
 
         const time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a')
 
-        return `<div class="col-sm-6 col-md-4 col-lg-3">
+        return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
@@ -144,6 +144,9 @@ console.log('LOCATION ARRAY', locationArray)
 console.log(locationArray[0] instanceof LocationClass)
 
 const appendHTMLToDOM = (locations: any[]): void => {
+    $('.events').html('')
+    $('.restaurants').html('')
+    $('.places').html('')
     locations.map((location: object) => {
         if (location instanceof Events) {
             $('.events').append(location.html)
@@ -157,6 +160,31 @@ const appendHTMLToDOM = (locations: any[]): void => {
 
 appendHTMLToDOM(locationArray)
 
+const sort = (sortBy: string) => {
+    sortLocations(locationArray, sortBy)
+    appendHTMLToDOM(locationArray)
+}
+
+const sortLocations = (locations: any[], sortBy: string) => {
+    if (sortBy === 'byName') {
+        return locations.sort((a, b) => {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                return -1
+            }
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1
+            }
+            return 0;
+        })
+    } else if (sortBy === 'descending') {
+        return locations.sort((a, b) => b.createdAt - a.createdAt)
+    } else if (sortBy === 'ascending') {
+        return locations.sort((a, b) => a.createdAt - b.createdAt)
+    }
+    else {
+        return locations
+    }
+}
 
 
 /* BioFrische

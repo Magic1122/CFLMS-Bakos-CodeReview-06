@@ -31,7 +31,7 @@ var LocationClass = (function () {
     }
     LocationClass.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-sm-6 col-md-4 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return LocationClass;
 }());
@@ -47,7 +47,7 @@ var Restaurant = (function (_super) {
     }
     Restaurant.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-sm-6 col-md-4 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.type + "</p>\n                            <p class=\"card-text\">" + this.phoneNumber + "</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.type + "</p>\n                            <p class=\"card-text\">" + this.phoneNumber + "</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return Restaurant;
 }(LocationClass));
@@ -64,7 +64,7 @@ var Events = (function (_super) {
     }
     Events.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-sm-6 col-md-4 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.eventDate + " " + this.eventTime + "</p>\n                            <p class=\"card-text\">" + this.price + " \u20AC</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.eventDate + " " + this.eventTime + "</p>\n                            <p class=\"card-text\">" + this.price + " \u20AC</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a href=\"#\" class=\"btn btn-warning\">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return Events;
 }(LocationClass));
@@ -84,6 +84,9 @@ var event4 = new Events('ERSTE Bank Open 500', 'Vienna', '1150', 'Wiener Stadtha
 console.log('LOCATION ARRAY', locationArray);
 console.log(locationArray[0] instanceof LocationClass);
 var appendHTMLToDOM = function (locations) {
+    $('.events').html('');
+    $('.restaurants').html('');
+    $('.places').html('');
     locations.map(function (location) {
         if (location instanceof Events) {
             $('.events').append(location.html);
@@ -97,4 +100,30 @@ var appendHTMLToDOM = function (locations) {
     });
 };
 appendHTMLToDOM(locationArray);
+var sort = function (sortBy) {
+    sortLocations(locationArray, sortBy);
+    appendHTMLToDOM(locationArray);
+};
+var sortLocations = function (locations, sortBy) {
+    if (sortBy === 'byName') {
+        return locations.sort(function (a, b) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                return -1;
+            }
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+            }
+            return 0;
+        });
+    }
+    else if (sortBy === 'descending') {
+        return locations.sort(function (a, b) { return b.createdAt - a.createdAt; });
+    }
+    else if (sortBy === 'ascending') {
+        return locations.sort(function (a, b) { return a.createdAt - b.createdAt; });
+    }
+    else {
+        return locations;
+    }
+};
 //# sourceMappingURL=script.js.map
