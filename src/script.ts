@@ -34,7 +34,7 @@ class LocationClass {
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
                             <p class="card-text">${this.zipCode} ${this.city}</p>
-                            <a href="#" class="btn btn-warning">Show</a>
+                            <a class="btn btn-warning" data-toggle="modal" data-target="#modal" data-pic=${this.img}>Show</a>
                         </div>
                         <div class="card-footer text-muted font-italic">
                             ${time}
@@ -70,7 +70,7 @@ class Restaurant extends LocationClass {
                             <p class="card-text">${this.type}</p>
                             <p class="card-text">${this.phoneNumber}</p>
                             <p><a href=${this.webAddress}>${this.webAddress}</a></p>
-                            <a href="#" class="btn btn-warning">Show</a>
+                            <a class="btn btn-warning" data-toggle="modal" data-target="#modal" data-pic=${this.img}>Show</a>
                         </div>
                         <div class="card-footer text-muted font-italic">
                             ${time}
@@ -109,7 +109,7 @@ class Events extends LocationClass {
                             <p class="card-text">${this.eventDate} ${this.eventTime}</p>
                             <p class="card-text">${this.price} €</p>
                             <p><a href=${this.webAddress}>${this.webAddress}</a></p>
-                            <a href="#" class="btn btn-warning">Show</a>
+                            <a class="btn btn-warning" data-toggle="modal" data-target="#modal" data-pic=${this.img}>Show</a>
                         </div>
                         <div class="card-footer text-muted font-italic">
                             ${time}
@@ -186,13 +186,12 @@ const sortLocations = (locations: any[], sortBy: string) => {
     }
 }
 
+$('.btn').on('click', (e) => {
+    const pictureSource = e.target.dataset.pic
+    $('.modal-body').html('')
+    $('.modal-body').append(`<img src=${pictureSource} class="card-img-top img-same" alt="picutre of the clikced element">`)
+    
 
-/* BioFrische
 
-Stutterheimstraße 6, 1150 Wien ,  +43(1) 9529215
-
-Indian
-
-biofrische.wien
-
- */
+    /* $('.modal-body').append(modalData) */
+})

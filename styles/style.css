@@ -5,3 +5,7 @@
 /* .card {
 	width: fit-content;
 } */
+
+.pointer {
+	cursor: pointer;
+}
