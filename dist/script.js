@@ -12,12 +12,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var filter = 'byName';
 var randomDate = function (start, end) {
     var date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
     return date.getTime();
 };
 var locationArray = [];
-var filter = 'byName';
 var LocationClass = (function () {
     function LocationClass(name, city, zipCode, address, img) {
         this.createdAt = randomDate(new Date(2012, 0, 1), new Date());
@@ -31,7 +31,7 @@ var LocationClass = (function () {
     }
     LocationClass.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <a class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <a class=\"btn btn-warning show-modal-button\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return LocationClass;
 }());
@@ -47,7 +47,7 @@ var Restaurant = (function (_super) {
     }
     Restaurant.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.type + "</p>\n                            <p class=\"card-text\">" + this.phoneNumber + "</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.type + "</p>\n                            <p class=\"card-text\">" + this.phoneNumber + "</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a class=\"btn btn-warning show-modal-button\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return Restaurant;
 }(LocationClass));
@@ -64,7 +64,7 @@ var Events = (function (_super) {
     }
     Events.prototype.display = function () {
         var time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a');
-        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.eventDate + " " + this.eventTime + "</p>\n                            <p class=\"card-text\">" + this.price + " \u20AC</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a class=\"btn btn-warning\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
+        return "<div class=\"col-12 col-md-6 col-lg-3\">\n                    <div class=\"card mb-4 bg-dark text-white\"> \n                        <img src=" + this.img + " class=\"d-none d-md-inline-block card-img-top img-same\" alt=\"...\">\n                        <div class=\"card-body\">\n                            <h5 class=\"card-title\">" + this.name + "</h5>\n                            <p class=\"card-text\">" + this.address + "</p>\n                            <p class=\"card-text\">" + this.zipCode + " " + this.city + "</p>\n                            <p class=\"card-text\">" + this.eventDate + " " + this.eventTime + "</p>\n                            <p class=\"card-text\">" + this.price + " \u20AC</p>\n                            <p><a href=" + this.webAddress + ">" + this.webAddress + "</a></p>\n                            <a class=\"btn btn-warning show-modal-button\" data-toggle=\"modal\" data-target=\"#modal\" data-pic=" + this.img + ">Show</a>\n                        </div>\n                        <div class=\"card-footer text-muted font-italic\">\n                            " + time + "\n                        </div>\n                    </div>\n                </div>";
     };
     return Events;
 }(LocationClass));
@@ -72,7 +72,6 @@ var location1 = new LocationClass('St. Charles Church', 'Vienna', '1010', 'Karls
 var location2 = new LocationClass('Schönbrunn Park', 'Vienna', '1130', 'Maxingstraße 13b', '/img/schonbrunn.png');
 var location3 = new LocationClass('Rathausplatz', 'Vienna', '1010', 'Rathausplatz', '/img/rathaus.jpg');
 var location4 = new LocationClass('Volksgarten', 'Vienna', '1010', 'Volksgarten', '/img/volksgarten.jpg');
-console.log(locationArray[0]);
 var restaurant1 = new Restaurant('ON Restaurant', 'Vienna', '1050', 'Wehrgasse 8', '/img/on.jpg', 'Chinese', '+43(1)5854900', 'http://www.restaurant-on.at/');
 var restaurant2 = new Restaurant('BioFrische', 'Vienna', '1150', 'Stutterheimstraße 6', '/img/biofrische.jpeg', 'Indian', '+43(1) 9529215', 'biofrische.wien');
 var restaurant3 = new Restaurant('Beaver Brewing Company', 'Vienna', '1090', 'Liechtensteinstraße 69', '/img/beawer.jpg', 'International', '+43(677) 61012253', 'https://www.beaverbrewing.at/');
@@ -81,8 +80,6 @@ var event1 = new Events('Cats - the musical', 'Vienna', '1010', 'Ronacher Theate
 var event2 = new Events('Guns ‘n Roses', 'Vienna', '1020', 'Ernst-Happel Stadion, Meiereistraße 7', 'img/guns.jpg', 'Sat, 09.06.2020', '19:30', 95.50, 'www.gunsandroses.com/');
 var event3 = new Events('VIECC Vienna Comic Con 2020', 'Vienna', '1021', 'Messe Wien, Messeplatz 1', 'img/comic.jpg', 'Sat, 21.11.2020', '11:00', 55.50, 'https://www.viecc.com/');
 var event4 = new Events('ERSTE Bank Open 500', 'Vienna', '1150', 'Wiener Stadthalle, Roland-Rainer-Platz 1,', 'img/ersteopen.jpg', 'Fri, 30.10.2020', '11:00', 85.50, 'https://www.erstebank-open.com/');
-console.log('LOCATION ARRAY', locationArray);
-console.log(locationArray[0] instanceof LocationClass);
 var appendHTMLToDOM = function (locations) {
     $('.events').html('');
     $('.restaurants').html('');
@@ -126,9 +123,9 @@ var sortLocations = function (locations, sortBy) {
         return locations;
     }
 };
-$('.btn').on('click', function (e) {
+$('.show-modal-button').on('click', function (e) {
     var pictureSource = e.target.dataset.pic;
     $('.modal-body').html('');
-    $('.modal-body').append("<img src=" + pictureSource + " class=\"card-img-top img-same\" alt=\"picutre of the clikced element\">");
+    $('.modal-body').append("<img src=" + pictureSource + " id=\"modal\" class=\"card-img-top img-same\" alt=\"picutre of the clikced element\">");
 });
 //# sourceMappingURL=script.js.map
