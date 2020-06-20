@@ -57,7 +57,7 @@ class LocationClass {
         const time = moment(this.createdAt).format('MMMM Do YYYY, h:mm:ss a')
         return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block d-none d-md-inline-block card-img-top img-same" alt="picture of a location">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
@@ -92,14 +92,14 @@ class Restaurant extends LocationClass {
 
         return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="picture of a restaurant">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
                             <p class="card-text">${this.zipCode} ${this.city}</p>
                             <p class="card-text">${this.type}</p>
                             <p class="card-text">${this.phoneNumber}</p>
-                            <p><a href=${this.webAddress}>${this.webAddress}</a></p>
+                            <p><a href=${this.webAddress} target="_blank">${this.webAddress}</a></p>
                             <a class="btn btn-warning show-modal-button" data-toggle="modal" data-target="#modal" data-pic=${this.img}>Show</a>
                         </div>
                         <div class="card-footer text-muted font-italic">
@@ -133,14 +133,14 @@ class Events extends LocationClass {
 
         return `<div class="col-12 col-md-6 col-lg-3">
                     <div class="card mb-4 bg-dark text-white"> 
-                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="...">
+                        <img src=${this.img} class="d-none d-md-inline-block card-img-top img-same" alt="picture of an event">
                         <div class="card-body">
                             <h5 class="card-title">${this.name}</h5>
                             <p class="card-text">${this.address}</p>
                             <p class="card-text">${this.zipCode} ${this.city}</p>
                             <p class="card-text">${this.eventDate} ${this.eventTime}</p>
                             <p class="card-text">${this.price} €</p>
-                            <p><a href=${this.webAddress}>${this.webAddress}</a></p>
+                            <p><a href=${this.webAddress} target="_blank">${this.webAddress}</a></p>
                             <a class="btn btn-warning show-modal-button" data-toggle="modal" data-target="#modal" data-pic=${this.img}>Show</a>
                         </div>
                         <div class="card-footer text-muted font-italic">
@@ -198,7 +198,7 @@ const restaurant2 = new Restaurant(
     '/img/biofrische.jpeg', 
     'Indian', 
     '+43(1) 9529215', 
-    'biofrische.wien'
+    'https://biofrische.wien/'
     )
 const restaurant3 = new Restaurant(
     'Beaver Brewing Company', 
@@ -243,7 +243,7 @@ const event2 = new Events(
     'Sat, 09.06.2020', 
     '19:30', 
     95.50, 
-    'www.gunsandroses.com/')
+    'https://www.gunsnroses.com/')
 const event3 = new Events(
     'VIECC Vienna Comic Con 2020', 
     'Vienna', 
